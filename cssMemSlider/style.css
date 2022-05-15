@@ -1,0 +1,123 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: rgb(236, 236, 236);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+li {
+  list-style-type: none;
+}
+img{
+  border-radius: 0.5em;
+  width: 25em;
+  height: 100%;
+  max-width: 100%;
+}
+input {
+  display: none;
+}
+.slider{
+  margin-top: 5em;
+  width: 25em;
+  overflow: hidden;
+  display: grid;
+  row-gap: 1em;
+}
+.slider_list{
+  grid-column: 1/3;
+  grid-row: 1/2;
+  display: flex;
+  width: 400%;
+  transition: all 0.3s ease-out;
+}
+.slider_text{
+  overflow: hidden;
+  grid-column: 1/3;
+  grid-row: 3/3;
+  width: 15em;
+}
+.text{
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  width: 400%;
+  transition: all 0.3s ease-out;
+}
+.text > * {
+  width: 100%;
+}
+#slide1:checked ~ .slider_list {
+  transform: translateX(0);
+}
+#slide1:checked ~ .slider_text .text {
+  transform: translateX(0);
+}
+#slide2:checked ~ .slider_list {
+  transform: translateX(-25%);
+}
+#slide2:checked ~ .slider_text .text {
+  transform: translateX(-25%);
+}
+#slide3:checked ~ .slider_list {
+  transform: translateX(-50%);
+}
+#slide3:checked ~ .slider_text .text {
+  transform: translateX(-50%);
+}
+#slide4:checked ~ .slider_list {
+  transform: translateX(-75%);
+}
+#slide4:checked ~ .slider_text .text {
+  transform: translateX(-75%);
+}
+.slider_dots {
+  grid-column: 1/3;
+  grid-row: 3/3;
+  justify-self: flex-end;
+  display: flex;
+}
+label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+}
+label span {
+  border-radius: 50%;
+  width: 0.8em;
+  height: 0.8em;
+  display: block;
+  background-color: rgb(177, 60, 255);
+  border: 0.2em solid rgb(206, 132, 255);
+}
+label:hover span {
+  opacity: 0.5;
+  border-color: rgb(206, 132, 255);
+}
+
+#slide1:checked ~ .slider_dots label[for="slide1"] span,
+#slide2:checked ~ .slider_dots label[for="slide2"] span,
+#slide3:checked ~ .slider_dots label[for="slide3"] span,
+#slide4:checked ~ .slider_dots label[for="slide4"] span {
+  background-color: transparent;
+}
+
+  @media (max-width: 768px) { 
+    .slider{
+      width: 20em;
+    }
+    .slider_dots {
+      grid-row: 2/3;
+      justify-self: center;
+    }
+    .slider_text{
+      width: 100%;
+    }
+   }
